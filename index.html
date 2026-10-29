@@ -251,6 +251,19 @@ a.btn { text-decoration: none; }
 }
 @media (prefers-reduced-motion: reduce) { .card-media { transition: none; } .card-link:hover .card-media { transform: none; } }
 
+/* inline steps: numbered section headings */
+.step-h { display: flex; align-items: center; gap: 10px; }
+.step {
+  flex: none; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center;
+  font-size: 14px; font-weight: 800; background: var(--surface); color: var(--ink-2); box-shadow: inset 0 0 0 1px var(--line);
+  transition: background .2s ease, color .2s ease;
+}
+.step svg { width: 16px; height: 16px; }
+.step.is-now { background: var(--wolt); color: var(--on-wolt); box-shadow: none; }
+.step.is-done { background: var(--tint); color: var(--tint-ink); box-shadow: none; }
+.sec > .msg.sub { margin-top: -6px; }
+@media (prefers-reduced-motion: reduce) { .step { transition: none; } }
+
 /* inline logo editing on the preview */
 .overlay { position: absolute; inset: 0; pointer-events: none; }
 .lbox {
@@ -312,7 +325,7 @@ a.btn { text-decoration: none; }
 <input type="file" id="file" accept="image/png,image/jpeg,image/webp,image/svg+xml,.svg,.png,.jpg,.jpeg,.webp" hidden>
 <main class="library" id="view-library">
   <section class="sec home-logo" aria-labelledby="h-home-logo">
-    <h2 id="h-home-logo">Logo</h2>
+    <h2 class="step-h" id="h-home-logo"><span class="step" data-step="h1">1</span>Upload your logo</h2>
     <div class="logo-ctl" data-logo-ctl="home">
         <button type="button" class="drop" data-role="pick">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V4m0 0-4 4m4-4 4 4"/><path d="M4 14v3a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-3"/></svg>
@@ -335,7 +348,8 @@ a.btn { text-decoration: none; }
       </div>
   </section>
   <section class="sec" aria-labelledby="h-templates">
-    <div class="lib-head"><h2 id="h-templates">Templates</h2><span class="lib-sub" id="lib-count"></span></div>
+    <h2 class="step-h" id="h-templates"><span class="step" data-step="h2">2</span>Export a template</h2>
+    <p class="msg sub">Optional: Edit to move or resize the logo first.</p>
     <div class="grid" id="grid"></div>
   </section>
 </main>
@@ -375,7 +389,7 @@ a.btn { text-decoration: none; }
 
   <div class="panel">
     <section class="sec" aria-labelledby="h-logo">
-      <h2 id="h-logo">Logo</h2>
+      <h2 class="step-h" id="h-logo"><span class="step" data-step="e1">1</span>Logo</h2>
       <div class="logo-ctl" data-logo-ctl="editor">
         <button type="button" class="drop" data-role="pick">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V4m0 0-4 4m4-4 4 4"/><path d="M4 14v3a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-3"/></svg>
@@ -393,14 +407,18 @@ a.btn { text-decoration: none; }
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
           </button>
         </div>
-      <p class="msg" data-role="hint" hidden>Drag the logo in the preview to move it. Drag a corner to resize.</p>
         <p class="msg" data-role="lock" hidden>The logo can be changed when the exports finish.</p>
         <p class="msg err" data-role="err" hidden></p>
       </div>
     </section>
 
+    <section class="sec" aria-labelledby="h-adjust">
+      <h2 class="step-h" id="h-adjust"><span class="step" data-step="e2">2</span>Adjust</h2>
+      <p class="msg sub">Optional: drag the logo in the preview to move it, drag a corner to resize.</p>
+    </section>
+
     <section class="sec" aria-labelledby="h-export">
-      <h2 id="h-export">Export</h2>
+      <h2 class="step-h" id="h-export"><span class="step" data-step="e3">3</span>Export</h2>
       <ul class="specs" aria-label="Output format">
         <li id="spec-size">1080 × 1080</li><li id="spec-fps">60 fps</li><li id="spec-br">15 Mbps</li><li id="spec-codec">MP4 · H.264</li>
       </ul>
@@ -420,7 +438,7 @@ a.btn { text-decoration: none; }
             <div class="row2">
               <button type="button" class="btn btn-main" id="save">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0 4-4m-4 4-4-4"/><path d="M4 15v2a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-2"/></svg>
-                Save video
+                Download again
               </button>
               <button type="button" class="btn btn-tint" id="again">Export again</button>
             </div>
@@ -1747,7 +1765,6 @@ a.btn { text-decoration: none; }
       grid.appendChild(el);
       renderCard(card);
     }
-    $('lib-count').textContent = String(TEMPLATES.length);
     sizeCards();
   }
   function cardOf(t) { return cards.find(c => c.tpl === t) || null; }
@@ -1767,7 +1784,7 @@ a.btn { text-decoration: none; }
           '<div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="Export progress"><i data-r="fill"></i></div></div>' +
           '<button type="button" class="icon-btn" data-act="cancel" aria-label="Cancel export">' + ICON_X + '</button>';
       } else if (st === 'done') {
-        c.act.innerHTML = '<button type="button" class="btn btn-sm-main grow" data-act="save">' + ICON_SAVE + 'Save video</button>' +
+        c.act.innerHTML = '<button type="button" class="btn btn-tint grow" data-act="save">' + ICON_SAVE + 'Download again</button>' +
           '<span class="card-note" data-r="note"></span>';
       } else if (st === 'error') {
         c.act.innerHTML = '<span class="card-err">Export failed</span><button type="button" class="btn btn-tint" data-act="export">Retry</button>';
@@ -1966,6 +1983,7 @@ a.btn { text-decoration: none; }
   }
   function showLogoCard() {
     const has = !!logo, lock = anyBusy();
+    renderSteps();
     for (const c of ctls) {
       c.card.hidden = !has; c.pick.hidden = has;
       if (c.hint) c.hint.hidden = !has || lock;
@@ -2194,7 +2212,7 @@ a.btn { text-decoration: none; }
   // ======================================================================
   const dlCap = (window.claude && typeof window.claude.use === 'function')
     ? Promise.resolve(window.claude.use('downloads')).catch(() => null) : Promise.resolve(null);
-  const jobs = new Map();     // template id -> { tpl, state: queued|running|done|error, p, f, n, phase, result, err, abort, logo, opts, name, solo }
+  const jobs = new Map();     // template id -> { tpl, state: queued|running|done|error, p, f, n, result, err, abort, logo, opts, name }
   const queue = [];
   let running = null, wake = null;
   function jobOf(t) { return t ? jobs.get(t.id) || null : null; }
@@ -2230,7 +2248,7 @@ a.btn { text-decoration: none; }
     if (!t || !logo || busy(t) || supportFor(t) === false) return;
     prepare(t);
     const j = { tpl: t, state: 'queued', p: 0, f: 0, n: t.scene.frames, result: null, err: '', abort: new AbortController(),
-      logo, opts: Object.assign({}, t.opts), name: logoName, solo: !anyBusy() };
+      logo, opts: Object.assign({}, t.opts), name: logoName };
     jobs.set(t.id, j); queue.push(j);
     if (t === tpl) { pause(); selected = false; dirty = true; }
     jobChanged(j);
@@ -2255,8 +2273,8 @@ a.btn { text-decoration: none; }
     if (j.state === 'cancelled') jobs.delete(j.tpl.id);
     if (!anyBusy() && wake) { try { wake.release(); } catch (e) { /* released */ } wake = null; }
     jobChanged(j);
-    // a single export saves itself on computers; when several are queued each card gets its own Save button
-    if (j.state === 'done' && j.solo && !queue.length && !isTouch) save(j);
+    // every finished video downloads by itself (one after another); the card and editor keep a Download again button
+    if (j.state === 'done') autoSave(j);
     pump();
   }
   function cancelJob(t) {
@@ -2313,7 +2331,9 @@ a.btn { text-decoration: none; }
     const s = slug(j.name);
     return j.tpl.id + (s ? '-' + s : '') + '-' + j.tpl.spec.width + 'x' + j.tpl.spec.height + '-' + Math.round(j.tpl.spec.fps) + 'fps.mp4';
   }
-  async function save(j) {
+  let saving = Promise.resolve();
+  function autoSave(j) { saving = saving.then(() => save(j, true)).catch(() => {}); }
+  async function save(j, auto) {
     if (!j || !j.result) return;
     const name = fileName(j), blob = j.result.blob;
     const dl = await dlCap;
@@ -2324,7 +2344,7 @@ a.btn { text-decoration: none; }
         if (e && e.code === 'rate_limited') { if (j.tpl === tpl) msg('A save prompt is already open.'); return; }
       }
     }
-    if (isTouch && navigator.canShare) {
+    if (!auto && isTouch && navigator.canShare) {
       try {
         const f = new File([blob], name, { type: 'video/mp4' });
         if (navigator.canShare({ files: [f] })) { await navigator.share({ files: [f] }); return; }
@@ -2346,6 +2366,21 @@ a.btn { text-decoration: none; }
   function padForBar() { document.body.style.paddingBottom = (mq.matches && view === 'editor') ? Math.ceil($('action').getBoundingClientRect().height + 16) + 'px' : ''; }
   if ('ResizeObserver' in window) new ResizeObserver(padForBar).observe($('action'));
   if (mq.addEventListener) mq.addEventListener('change', padForBar);
+
+  // ---------- inline steps: the numbered headings show what to do next ----------
+  const CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 12.5 4 4 8-9"/></svg>';
+  function renderSteps() {
+    const j = jobOf(tpl);
+    const st = {
+      h1: logo ? 'done' : 'now', h2: logo ? 'now' : '',
+      e1: logo ? 'done' : 'now', e2: '', e3: !logo ? '' : (j && j.state === 'done' ? 'done' : 'now')
+    };
+    for (const el of document.querySelectorAll('.step[data-step]')) {
+      const v = st[el.dataset.step], n = el.dataset.step.slice(1);
+      el.classList.toggle('is-now', v === 'now'); el.classList.toggle('is-done', v === 'done');
+      el.innerHTML = v === 'done' ? CHECK : n;
+    }
+  }
 
   // ======================================================================
   // ROUTING: #<template-id> opens a template; anything else shows every template
@@ -2373,6 +2408,7 @@ a.btn { text-decoration: none; }
       sizeCards();
     }
     refreshLogoNote();
+    renderSteps();
     padForBar();
   }
   $('back').addEventListener('click', () => { location.hash = ''; });
