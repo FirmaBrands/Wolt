@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Logo Video Templates</title>
+<title>Wolt logo videos</title>
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#101112" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -153,6 +153,7 @@ h2 { margin: 0; font-size: 20px; font-weight: 800; letter-spacing: -0.01em; }
   min-height: 40px; padding: 0 14px; font-size: 15px;
 }
 .btn svg { width: 18px; height: 18px; flex: none; }
+a.btn { text-decoration: none; }
 .btn-tint { background: var(--tint); color: var(--tint-ink); }
 .btn-tint:hover { filter: brightness(0.97); }
 .btn-ghost { background: transparent; color: var(--tint-ink); padding: 0 8px; min-height: 32px; }
@@ -198,28 +199,23 @@ h2 { margin: 0; font-size: 20px; font-weight: 800; letter-spacing: -0.01em; }
 .back svg { width: 22px; height: 22px; }
 .brand { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
-/* library */
-.library { max-width: 1180px; margin: 0 auto; padding-inline: 16px; padding-block: 28px 56px; display: grid; gap: 20px; }
-.lib-head { display: grid; gap: 4px; }
-.lib-title { margin: 0; font-size: clamp(26px, 4vw, 34px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; text-wrap: balance; }
-.lib-sub { margin: 0; color: var(--ink-2); font-weight: 600; }
-.chips { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; margin-inline: -16px; padding-inline: 16px; }
-.chips::-webkit-scrollbar { display: none; }
-.chip {
-  flex: none; border: 0; border-radius: 999px; padding: 8px 16px; font-weight: 700; font-size: 15px;
-  background: var(--surface); color: var(--ink);
-}
-.chip:hover { filter: brightness(0.97); }
-.chip[aria-selected="true"] { background: var(--wolt); color: var(--on-wolt); }
-.chip small { font-weight: 700; font-size: 13px; opacity: .7; margin-left: 4px; font-variant-numeric: tabular-nums; }
-.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); gap: 24px 20px; }
-.card { display: grid; align-content: start; gap: 12px; text-decoration: none; color: inherit; border-radius: var(--r-lg); outline-offset: 4px; }
+/* library (home) */
+.library { max-width: 1180px; margin: 0 auto; padding-inline: 16px; padding-block: 28px 56px; display: grid; gap: 36px; }
+.home-logo .logo-ctl { max-width: 560px; }
+.logo-ctl { display: grid; gap: 12px; }
+.home-logo .drop { grid-template-columns: auto 1fr; justify-items: start; text-align: left; column-gap: 14px; row-gap: 0; padding: 16px 18px; }
+.home-logo .drop svg { grid-row: span 2; align-self: center; }
+.lib-head { display: flex; align-items: baseline; gap: 10px; }
+.lib-sub { color: var(--ink-2); font-weight: 700; font-variant-numeric: tabular-nums; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); gap: 28px 20px; }
+.card { display: grid; align-content: start; gap: 12px; min-width: 0; }
+.card-link { display: grid; gap: 12px; text-decoration: none; color: inherit; border-radius: var(--r-lg); outline-offset: 4px; }
 .card-media {
   position: relative; aspect-ratio: 1 / 1; border-radius: var(--r-lg); overflow: hidden; background: var(--surface);
   display: grid; place-items: center; box-shadow: 0 0 0 1px var(--line);
   transition: transform .2s ease, box-shadow .2s ease;
 }
-.card:hover .card-media { transform: translateY(-2px); box-shadow: 0 0 0 1px var(--line), 0 10px 24px rgba(0,0,0,.10); }
+.card-link:hover .card-media { transform: translateY(-2px); box-shadow: 0 0 0 1px var(--line), 0 10px 24px rgba(0,0,0,.10); }
 .card-media canvas { display: block; max-width: 100%; max-height: 100%; }
 .card-play {
   position: absolute; left: 12px; bottom: 12px; display: inline-flex; align-items: center; gap: 6px;
@@ -230,16 +226,30 @@ h2 { margin: 0; font-size: 20px; font-weight: 800; letter-spacing: -0.01em; }
 .card-body { display: grid; gap: 2px; padding-inline: 2px; }
 .card-name { font-size: 17px; font-weight: 800; letter-spacing: -0.01em; }
 .card-meta { font-size: 13px; color: var(--ink-2); font-weight: 600; font-variant-numeric: tabular-nums; }
-.empty-lib { color: var(--ink-2); font-weight: 600; padding-block: 24px; }
+.card-act { display: flex; align-items: center; gap: 8px; min-height: 40px; }
+.card-act .btn { min-height: 40px; }
+.card-act .grow { flex: 1; min-width: 0; }
+.btn-sm-main { background: var(--wolt); color: var(--on-wolt); }
+.btn-sm-main:hover:not(:disabled) { background: var(--wolt-press); }
+.btn-sm-main:disabled { background: var(--line); color: var(--ink-2); }
+.card-prog { flex: 1; min-width: 0; display: grid; gap: 6px; }
+.card-prog-row { display: flex; justify-content: space-between; gap: 8px; font-size: 13px; font-weight: 700; }
+.card-prog-row span:last-child { color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.card-note { font-size: 13px; font-weight: 600; color: var(--ink-2); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.card-err { flex: 1; min-width: 0; font-size: 13px; font-weight: 700; color: var(--bad); }
 @media (max-width: 560px) {
-  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 12px; }
-  .card { gap: 8px; }
+  .library { gap: 28px; padding-block: 20px 40px; }
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 12px; }
+  .card, .card-link { gap: 8px; }
   .card-media { border-radius: var(--r-md); }
   .card-name { font-size: 15px; }
   .card-meta { font-size: 12px; }
   .card-play { left: 8px; bottom: 8px; padding: 3px 8px 3px 6px; font-size: 11px; }
+  .card-act { gap: 6px; }
+  .card-act .btn { padding: 0 10px; font-size: 14px; }
+  .card-note { display: none; }
 }
-@media (prefers-reduced-motion: reduce) { .card-media { transition: none; } .card:hover .card-media { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .card-media { transition: none; } .card-link:hover .card-media { transform: none; } }
 
 /* inline logo editing on the preview */
 .overlay { position: absolute; inset: 0; pointer-events: none; }
@@ -292,21 +302,42 @@ h2 { margin: 0; font-size: 20px; font-weight: 800; letter-spacing: -0.01em; }
 <body>
 <header class="top">
   <div class="top-inner">
-    <button type="button" class="back" id="back" hidden aria-label="All templates">
+    <button type="button" class="back" id="back" hidden aria-label="Back to templates">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
     </button>
-    <span class="brand" id="brand">Logo video templates</span>
-    <span class="tag" id="brand-tag" hidden></span>
+    <span class="brand" id="brand">Wolt logo videos</span>
   </div>
 </header>
 
+<input type="file" id="file" accept="image/png,image/jpeg,image/webp,image/svg+xml,.svg,.png,.jpg,.jpeg,.webp" hidden>
 <main class="library" id="view-library">
-  <div class="lib-head">
-    <h1 class="lib-title" id="lib-title">All templates</h1>
-    <p class="lib-sub" id="lib-count"></p>
-  </div>
-  <div class="chips" id="chips" role="tablist" aria-label="Client"></div>
-  <div class="grid" id="grid"></div>
+  <section class="sec home-logo" aria-labelledby="h-home-logo">
+    <h2 id="h-home-logo">Logo</h2>
+    <div class="logo-ctl" data-logo-ctl="home">
+        <button type="button" class="drop" data-role="pick">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V4m0 0-4 4m4-4 4 4"/><path d="M4 14v3a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-3"/></svg>
+          <b>Upload logo</b>
+          <span>PNG, SVG, JPG or WebP</span>
+        </button>
+        <div class="file" data-role="card" hidden>
+          <div class="thumb"><img data-role="thumb" alt=""></div>
+          <div class="file-meta">
+            <span class="file-name" data-role="name"></span>
+            <span class="file-dim" data-role="dim"></span>
+          </div>
+          <button type="button" class="btn btn-tint" data-role="replace">Replace</button>
+          <button type="button" class="icon-btn" data-role="remove" aria-label="Remove logo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+          </button>
+        </div>
+        <p class="msg" data-role="lock" hidden>The logo can be changed when the exports finish.</p>
+        <p class="msg err" data-role="err" hidden></p>
+      </div>
+  </section>
+  <section class="sec" aria-labelledby="h-templates">
+    <div class="lib-head"><h2 id="h-templates">Templates</h2><span class="lib-sub" id="lib-count"></span></div>
+    <div class="grid" id="grid"></div>
+  </section>
 </main>
 
 <main class="layout" id="view-editor" hidden>
@@ -345,25 +376,27 @@ h2 { margin: 0; font-size: 20px; font-weight: 800; letter-spacing: -0.01em; }
   <div class="panel">
     <section class="sec" aria-labelledby="h-logo">
       <h2 id="h-logo">Logo</h2>
-      <input type="file" id="file" accept="image/png,image/jpeg,image/webp,image/svg+xml,.svg,.png,.jpg,.jpeg,.webp" hidden>
-      <button type="button" class="drop" id="pick">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V4m0 0-4 4m4-4 4 4"/><path d="M4 14v3a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-3"/></svg>
-        <b>Upload logo</b>
-        <span>PNG, SVG, JPG or WebP</span>
-      </button>
-      <div class="file" id="filecard" hidden>
-        <div class="thumb"><img id="thumb" alt=""></div>
-        <div class="file-meta">
-          <span class="file-name" id="fname"></span>
-          <span class="file-dim" id="fdim"></span>
-        </div>
-        <button type="button" class="btn btn-tint" id="replace">Replace</button>
-        <button type="button" class="icon-btn" id="remove" aria-label="Remove logo">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      <div class="logo-ctl" data-logo-ctl="editor">
+        <button type="button" class="drop" data-role="pick">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V4m0 0-4 4m4-4 4 4"/><path d="M4 14v3a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-3"/></svg>
+          <b>Upload logo</b>
+          <span>PNG, SVG, JPG or WebP</span>
         </button>
+        <div class="file" data-role="card" hidden>
+          <div class="thumb"><img data-role="thumb" alt=""></div>
+          <div class="file-meta">
+            <span class="file-name" data-role="name"></span>
+            <span class="file-dim" data-role="dim"></span>
+          </div>
+          <button type="button" class="btn btn-tint" data-role="replace">Replace</button>
+          <button type="button" class="icon-btn" data-role="remove" aria-label="Remove logo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+          </button>
+        </div>
+      <p class="msg" data-role="hint" hidden>Drag the logo in the preview to move it. Drag a corner to resize.</p>
+        <p class="msg" data-role="lock" hidden>The logo can be changed when the exports finish.</p>
+        <p class="msg err" data-role="err" hidden></p>
       </div>
-      <p class="msg" id="logo-hint" hidden>Drag the logo in the preview to move it. Drag a corner to resize.</p>
-      <p class="msg err" id="logo-err" hidden></p>
     </section>
 
     <section class="sec" aria-labelledby="h-export">
@@ -1663,40 +1696,22 @@ h2 { margin: 0; font-size: 20px; font-weight: 800; letter-spacing: -0.01em; }
   }
 
   // ======================================================================
-  // LIBRARY
+  // LIBRARY (home): every template with the shared logo, exportable from its card
   // ======================================================================
-  const grid = $('grid'), chips = $('chips');
-  let clientFilter = 'all';
-  const cards = [];   // {tpl, el, canvas, ctx, engine}
+  const grid = $('grid');
+  const cards = [];   // {tpl, el, link, act, canvas, ctx, engine, frame}
   let hoverCard = null, hoverStart = 0;
+  const ICON_PLAY = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.6v12.8a1 1 0 0 0 1.5.86l10.2-6.4a1 1 0 0 0 0-1.72L9.5 4.74A1 1 0 0 0 8 5.6Z"/></svg>';
+  const ICON_SAVE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0 4-4m-4 4-4-4"/><path d="M4 15v2a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-2"/></svg>';
+  const ICON_X = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>';
 
-  function clientsOf() {
-    const m = new Map();
-    for (const t of TEMPLATES) m.set(slug(t.client), { name: t.client, n: (m.get(slug(t.client)) || { n: 0 }).n + 1 });
-    return m;
-  }
-  function renderChips() {
-    const m = clientsOf();
-    chips.innerHTML = '';
-    const mk = (key, label, n) => {
-      const b = document.createElement('button');
-      b.type = 'button'; b.className = 'chip'; b.setAttribute('role', 'tab');
-      b.setAttribute('aria-selected', String(clientFilter === key));
-      b.textContent = label;
-      const sm = document.createElement('small'); sm.textContent = n; b.appendChild(sm);
-      b.addEventListener('click', () => { location.hash = key === 'all' ? '' : 'client-' + key; });
-      chips.appendChild(b);
-    };
-    mk('all', 'All', TEMPLATES.length);
-    for (const [k, v] of m) mk(k, v.name, v.n);
-    chips.hidden = m.size < 1;
-  }
   function buildCards() {
     for (const tpl of TEMPLATES) {
       prepare(tpl);
+      const el = document.createElement('article'); el.className = 'card';
       const a = document.createElement('a');
-      a.className = 'card'; a.href = '#' + tpl.id;
-      a.setAttribute('aria-label', tpl.name + ', ' + tpl.client);
+      a.className = 'card-link'; a.href = '#' + tpl.id;
+      a.setAttribute('aria-label', 'Edit ' + tpl.name);
       const media = document.createElement('div'); media.className = 'card-media';
       const cv = document.createElement('canvas');
       const ar = tpl.scene.w / tpl.scene.h;
@@ -1704,25 +1719,69 @@ h2 { margin: 0; font-size: 20px; font-weight: 800; letter-spacing: -0.01em; }
       cv.style.width = ar >= 1 ? '100%' : 'auto'; cv.style.height = ar >= 1 ? 'auto' : '100%';
       media.appendChild(cv);
       const badge = document.createElement('span'); badge.className = 'card-play';
-      badge.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.6v12.8a1 1 0 0 0 1.5.86l10.2-6.4a1 1 0 0 0 0-1.72L9.5 4.74A1 1 0 0 0 8 5.6Z"/></svg>';
+      badge.innerHTML = ICON_PLAY;
       badge.appendChild(document.createTextNode(fmtTime(tpl.scene.frames / tpl.scene.fps)));
       media.appendChild(badge);
       const body = document.createElement('div'); body.className = 'card-body';
       const nm = document.createElement('span'); nm.className = 'card-name'; nm.textContent = tpl.name;
       const meta = document.createElement('span'); meta.className = 'card-meta';
-      meta.textContent = tpl.client + ' · ' + tpl.scene.w + ' × ' + tpl.scene.h + ' · ' + Math.round(tpl.scene.fps) + ' fps';
+      meta.textContent = tpl.scene.w + ' × ' + tpl.scene.h + ' · ' + Math.round(tpl.scene.fps) + ' fps' + (tpl.audio ? ' · Sound' : '');
       body.appendChild(nm); body.appendChild(meta);
       a.appendChild(media); a.appendChild(body);
+      const act = document.createElement('div'); act.className = 'card-act';
+      el.appendChild(a); el.appendChild(act);
       const eng = new AEEngine(tpl.scene, { placeholder: true });
-      const card = { tpl, el: a, canvas: cv, ctx: cv.getContext('2d'), engine: eng, frame: tpl.hold };
+      const card = { tpl, el, link: a, act, canvas: cv, ctx: cv.getContext('2d'), engine: eng, frame: tpl.hold, state: '' };
       if (!isTouch && !reduceMotion) {
         a.addEventListener('pointerenter', () => { hoverCard = card; hoverStart = performance.now(); });
         a.addEventListener('pointerleave', () => { if (hoverCard === card) { hoverCard = null; card.frame = tpl.hold; drawCard(card); } });
       }
+      act.addEventListener('click', e => {
+        const b = e.target.closest('[data-act]'); if (!b || b.disabled) return;
+        const k = b.dataset.act;
+        if (k === 'export') startExport(tpl);
+        else if (k === 'cancel') cancelJob(tpl);
+        else if (k === 'save') save(jobOf(tpl));
+      });
       cards.push(card);
-      grid.appendChild(a);
+      grid.appendChild(el);
+      renderCard(card);
     }
+    $('lib-count').textContent = String(TEMPLATES.length);
     sizeCards();
+  }
+  function cardOf(t) { return cards.find(c => c.tpl === t) || null; }
+  // card footer: Export / Edit, progress while exporting, Save when the video is ready
+  function renderCard(c) {
+    const j = jobOf(c.tpl), st = !logo ? 'none' : (j ? j.state : 'idle');
+    const key = st + (st === 'idle' ? (supportFor(c.tpl) === false ? '-x' : '') : '');
+    if (key !== c.state) {
+      c.state = key;
+      c.act.hidden = st === 'none';
+      if (st === 'idle') {
+        const no = supportFor(c.tpl) === false;
+        c.act.innerHTML = '<button type="button" class="btn btn-sm-main grow" data-act="export"' + (no ? ' disabled' : '') + '>Export</button>' +
+          '<a class="btn btn-tint" href="#' + c.tpl.id + '">Edit</a>';
+      } else if (st === 'queued' || st === 'running') {
+        c.act.innerHTML = '<div class="card-prog"><div class="card-prog-row"><span data-r="phase"></span><span data-r="pct"></span></div>' +
+          '<div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="Export progress"><i data-r="fill"></i></div></div>' +
+          '<button type="button" class="icon-btn" data-act="cancel" aria-label="Cancel export">' + ICON_X + '</button>';
+      } else if (st === 'done') {
+        c.act.innerHTML = '<button type="button" class="btn btn-sm-main grow" data-act="save">' + ICON_SAVE + 'Save video</button>' +
+          '<span class="card-note" data-r="note"></span>';
+      } else if (st === 'error') {
+        c.act.innerHTML = '<span class="card-err">Export failed</span><button type="button" class="btn btn-tint" data-act="export">Retry</button>';
+      }
+    }
+    if (st === 'queued' || st === 'running') {
+      const pct = st === 'queued' ? 0 : Math.floor(Math.min(1, j.p) * 100);
+      c.act.querySelector('[data-r="phase"]').textContent = st === 'queued' ? 'Waiting' : 'Exporting';
+      c.act.querySelector('[data-r="pct"]').textContent = st === 'queued' ? '' : pct + '%';
+      c.act.querySelector('[data-r="fill"]').style.width = pct + '%';
+      c.act.querySelector('.bar').setAttribute('aria-valuenow', pct);
+    } else if (st === 'done') {
+      c.act.querySelector('[data-r="note"]').textContent = (j.result.blob.size / 1048576).toFixed(1) + ' MB';
+    }
   }
   function sizeCards() {
     const dpr = window.devicePixelRatio || 1;
@@ -1741,14 +1800,6 @@ h2 { margin: 0; font-size: 20px; font-weight: 800; letter-spacing: -0.01em; }
     c.engine.logoOpts = c.tpl.opts;
     c.engine.renderFrame(c.ctx, c.frame);
   }
-  function filterCards() {
-    let shown = 0;
-    for (const c of cards) {
-      const on = clientFilter === 'all' || slug(c.tpl.client) === clientFilter;
-      c.el.hidden = !on; if (on) shown++;
-    }
-    $('lib-count').textContent = shown + (shown === 1 ? ' template' : ' templates');
-  }
   function libraryTick(now) {
     if (hoverCard && view === 'library') {
       const t = hoverCard.tpl, N = t.scene.frames;
@@ -1763,7 +1814,8 @@ h2 { margin: 0; font-size: 20px; font-weight: 800; letter-spacing: -0.01em; }
   const canvas = $('preview'), ctx = canvas.getContext('2d'), frameEl = $('frame');
   let tpl = null, engine = null, N = 1, FPS = 60;
   let frame = 0, playing = false, t0 = 0, f0 = 0, dirty = true;
-  let exporting = false, result = null, abort = null, wake = null;
+  // the open template's export, if any, runs as a job (see EXPORT); moving or resizing its logo is locked meanwhile
+  function locked() { return busy(tpl); }
   let selected = false, hovering = false, drag = null, geom = null;
   const pointers = new Map();
   const supportCache = {};
@@ -1783,11 +1835,10 @@ h2 { margin: 0; font-size: 20px; font-weight: 800; letter-spacing: -0.01em; }
     $('spec-codec').textContent = codecLabel('H.264');
     $('sound').hidden = !t.audio; setSoundIcon();
     if (t.audio) soundBuffer(t);          // decode ahead so sound starts with the first play
-    result = null; $('result').hidden = true; msg('');
     selected = !!logo;
     if (logo) { pause(); seek(t.hold); } else { seek(0); play(); }
     fit();
-    refreshLogoNote(); updateBar(); updateExportButton(); checkSupport();
+    refreshLogoNote(); updateBar(); renderEditorJob(); checkSupport();
   }
 
   function codecLabel(v) { return 'MP4 · ' + v + (tpl && tpl.audio ? ' + AAC' : ''); }
@@ -1828,10 +1879,10 @@ h2 { margin: 0; font-size: 20px; font-weight: 800; letter-spacing: -0.01em; }
   function startSound() {
     stopSound();
     const t = tpl;
-    if (!t || !t.audio || muted || !playing || exporting) return;
+    if (!t || !t.audio || muted || !playing) return;
     const c = audioCtx(); if (!c) return;
     soundBuffer(t).then(buf => {
-      if (!buf || tpl !== t || !playing || muted || exporting || asrc) return;
+      if (!buf || tpl !== t || !playing || muted || asrc) return;
       const from = frame / FPS;
       if (from >= buf.duration) return;
       const s = c.createBufferSource(); s.buffer = buf; s.connect(c.destination);
@@ -1885,7 +1936,7 @@ h2 { margin: 0; font-size: 20px; font-weight: 800; letter-spacing: -0.01em; }
 
   function editorTick(now) {
     if (!engine || view !== 'editor') return;
-    if (playing && !exporting) {
+    if (playing) {
       const sf = soundFrame();
       let f = sf >= 0 ? sf : f0 + Math.floor((now - t0) * FPS / 1000);
       if (f >= N) { frame = 0; f0 = 0; t0 = now; dirty = true; if (tpl.audio) startSound(); }   // loop (sound restarts with it)
@@ -1894,62 +1945,87 @@ h2 { margin: 0; font-size: 20px; font-weight: 800; letter-spacing: -0.01em; }
     if (dirty) { engine.renderFrame(ctx, frame); updateTransport(); syncOverlay(); dirty = false; }
   }
 
-  // ---------- logo file ----------
-  function showLogoError(text) { const el = $('logo-err'); el.textContent = text || ''; el.hidden = !text; }
+  // ---------- logo file (one logo for every template; the same control on the home page and in the editor) ----------
+  const ctls = [...document.querySelectorAll('[data-logo-ctl]')].map(root => {
+    const r = n => root.querySelector('[data-role="' + n + '"]');
+    return { root, where: root.dataset.logoCtl, pick: r('pick'), card: r('card'), thumb: r('thumb'), name: r('name'), dim: r('dim'),
+      replace: r('replace'), remove: r('remove'), hint: r('hint'), lock: r('lock'), err: r('err') };
+  });
+  function showLogoError(text) { for (const c of ctls) { c.err.textContent = text || ''; c.err.hidden = !text; } }
+  // warn when the file is smaller than it is drawn (in the open template, or in any template on the home page)
   function refreshLogoNote() {
-    if (!logo || logoSrc.svg || !tpl) { showLogoError(''); return; }
-    const o = tpl.opts;
-    const need = logo.w * Math.min(tpl.foot.w / logo.w, tpl.foot.h / logo.h) * o.size * tpl.outScale;
-    showLogoError(logo.w + 0.5 < need ? 'This logo is smaller than it appears in the video and will look soft. Use a larger file or an SVG.' : '');
+    if (!logo || logoSrc.svg) { showLogoError(''); return; }
+    const list = view === 'editor' && tpl ? [tpl] : TEMPLATES;
+    let soft = false;
+    for (const t of list) {
+      prepare(t);
+      const need = logo.w * Math.min(t.foot.w / logo.w, t.foot.h / logo.h) * t.opts.size * t.outScale;
+      if (logo.w + 0.5 < need) soft = true;
+    }
+    showLogoError(soft ? 'This logo is smaller than it appears in the video and will look soft. Use a larger file or an SVG.' : '');
   }
   function showLogoCard() {
-    const has = !!logo;
-    $('filecard').hidden = !has; $('pick').hidden = has; $('logo-hint').hidden = !has;
-    if (has) {
-      $('thumb').src = logoUrl;
-      $('fname').textContent = logoName;
-      $('fdim').textContent = logoSrc.svg ? 'SVG · vector' : (logoSrc.w + ' × ' + logoSrc.h + ' px');
-    } else $('thumb').removeAttribute('src');
+    const has = !!logo, lock = anyBusy();
+    for (const c of ctls) {
+      c.card.hidden = !has; c.pick.hidden = has;
+      if (c.hint) c.hint.hidden = !has || lock;
+      c.lock.hidden = !(has && lock);
+      c.replace.disabled = lock; c.remove.disabled = lock; c.pick.disabled = lock;
+      if (has) {
+        c.thumb.src = logoUrl;
+        c.name.textContent = logoName;
+        c.dim.textContent = logoSrc.svg ? 'SVG · vector' : (logoSrc.w + ' × ' + logoSrc.h + ' px');
+      } else c.thumb.removeAttribute('src');
+    }
   }
   async function loadLogo(file) {
-    if (!file || exporting) return;
+    if (!file || anyBusy()) return;
     showLogoError('');
     let r;
     try { r = await prepareLogo(file); }
     catch (e) { showLogoError(e.message || 'This file could not be opened.'); return; }
+    if (anyBusy()) return;
     if (logoUrl) URL.revokeObjectURL(logoUrl);
     logoUrl = r.url; logoSrc = r.src; logoName = file.name || 'logo'; logo = r.logo;
     for (const t of TEMPLATES) { prepare(t); t.opts = clampOpts(t, { size: 1, x: 0, y: 0 }); }
+    clearAllResults();
     showLogoCard();
-    for (const c of cards) drawCard(c);
+    for (const c of cards) { drawCard(c); renderCard(c); }
     if (engine) {
       engine.logo = logo; engine.logoOpts = tpl.opts;
       selected = true;
       pause(); seek(tpl.hold);
-      invalidate(); refreshLogoNote(); updateBar();
+      updateBar();
     }
-    updateExportButton();
+    refreshLogoNote(); renderEditorJob();
   }
   function removeLogo() {
-    if (exporting) return;
+    if (anyBusy()) return;
     logo = null;
     if (logoUrl) URL.revokeObjectURL(logoUrl);
     logoUrl = null; logoName = '';
     for (const t of TEMPLATES) t.opts = { size: 1, x: 0, y: 0 };
     if (engine) { engine.logo = null; engine.logoOpts = tpl.opts; }
     selected = false;
+    clearAllResults();
     showLogoCard(); showLogoError('');
-    for (const c of cards) drawCard(c);
-    invalidate(); dirty = true; updateBar(); updateExportButton();
+    for (const c of cards) { drawCard(c); renderCard(c); }
+    dirty = true; updateBar(); renderEditorJob();
   }
   const file = $('file');
-  $('pick').addEventListener('click', () => file.click());
-  $('replace').addEventListener('click', () => file.click());
-  $('remove').addEventListener('click', removeLogo);
+  for (const c of ctls) {
+    c.pick.addEventListener('click', () => file.click());
+    c.replace.addEventListener('click', () => file.click());
+    c.remove.addEventListener('click', removeLogo);
+  }
   file.addEventListener('change', () => { const f = file.files && file.files[0]; file.value = ''; loadLogo(f); });
 
   let dragDepth = 0;
-  function dragOn(on) { $('pick').classList.toggle('drag', on && view === 'editor'); frameEl.classList.toggle('drag', on && view === 'editor'); }
+  function dragOn(on) {
+    on = on && !anyBusy();
+    for (const c of ctls) c.pick.classList.toggle('drag', on && c.where === (view === 'editor' ? 'editor' : 'home'));
+    frameEl.classList.toggle('drag', on && view === 'editor');
+  }
   function hasFiles(e) { return e.dataTransfer && Array.prototype.indexOf.call(e.dataTransfer.types || [], 'Files') >= 0; }
   document.addEventListener('dragenter', e => { if (hasFiles(e)) { e.preventDefault(); dragDepth++; dragOn(true); } });
   document.addEventListener('dragover', e => { if (hasFiles(e)) e.preventDefault(); });
@@ -1984,7 +2060,7 @@ h2 { margin: 0; font-size: 20px; font-weight: 800; letter-spacing: -0.01em; }
   function setOpts(o) {
     tpl.opts = clampOpts(tpl, o);
     engine.logoOpts = tpl.opts;
-    dirty = true; invalidate(); refreshLogoNote(); updateBar();
+    dirty = true; clearResult(tpl); refreshLogoNote(); updateBar();
   }
   function updateBar() {
     if (!tpl) return;
@@ -2002,7 +2078,7 @@ h2 { margin: 0; font-size: 20px; font-weight: 800; letter-spacing: -0.01em; }
     if (h && geom) $('guide-h').style.top = (geom.cy * s) + 'px';
   }
   function syncOverlay() {
-    let g = (exporting || !logo) ? null : engine.logoGeom(frame);
+    let g = (locked() || !logo) ? null : engine.logoGeom(frame);
     if (g && !g.flat) g = null;          // only edit where the logo faces the camera head-on
     geom = g;
     if (!g) { lbox.hidden = true; lbar.hidden = true; showGuides(false, false); return; }
@@ -2038,7 +2114,7 @@ h2 { margin: 0; font-size: 20px; font-weight: 800; letter-spacing: -0.01em; }
     lbox.classList.toggle('dragging', !!drag && drag.mode !== 'resize');
   }
   lbox.addEventListener('pointerdown', e => {
-    if (!logo || exporting) return;
+    if (!logo || locked()) return;
     e.preventDefault();
     select();
     try { lbox.setPointerCapture(e.pointerId); } catch (err) { /* not capturable */ }
@@ -2079,13 +2155,13 @@ h2 { margin: 0; font-size: 20px; font-weight: 800; letter-spacing: -0.01em; }
   lbox.addEventListener('pointerenter', () => { hovering = true; dirty = true; });
   lbox.addEventListener('pointerleave', () => { hovering = false; dirty = true; });
   lbox.addEventListener('wheel', e => {
-    if (!logo || exporting) return;
+    if (!logo || locked()) return;
     e.preventDefault();
     select();
     setOpts(Object.assign({}, tpl.opts, { size: tpl.opts.size * Math.exp(-e.deltaY * 0.0015) }));
   }, { passive: false });
   lbox.addEventListener('keydown', e => {
-    if (exporting || !logo) return;
+    if (locked() || !logo) return;
     const o = Object.assign({}, tpl.opts), st = e.shiftKey ? 10 : 1;
     const fw = tpl.foot.w, fh = tpl.foot.h;
     switch (e.key) {
@@ -2113,109 +2189,157 @@ h2 { margin: 0; font-size: 20px; font-weight: 800; letter-spacing: -0.01em; }
   $('size-up').addEventListener('click', () => stepSize(1));
   $('reset').addEventListener('click', () => { select(); setOpts({ size: 1, x: 0, y: 0 }); });
 
-  // ---------- export ----------
+  // ======================================================================
+  // EXPORT: one job per template, run one at a time, started from a card or from the editor
+  // ======================================================================
   const dlCap = (window.claude && typeof window.claude.use === 'function')
     ? Promise.resolve(window.claude.use('downloads')).catch(() => null) : Promise.resolve(null);
+  const jobs = new Map();     // template id -> { tpl, state: queued|running|done|error, p, f, n, phase, result, err, abort, logo, opts, name, solo }
+  const queue = [];
+  let running = null, wake = null;
+  function jobOf(t) { return t ? jobs.get(t.id) || null : null; }
+  function busy(t) { const j = jobOf(t); return !!j && (j.state === 'queued' || j.state === 'running'); }
+  function anyBusy() { for (const j of jobs.values()) if (j.state === 'queued' || j.state === 'running') return true; return false; }
+
   function msg(text, err) { const el = $('export-msg'); el.textContent = text || ''; el.hidden = !text; el.classList.toggle('err', !!err); }
   function supportFor(t) { return t ? supportCache[t.spec.width + 'x' + t.spec.height + '@' + t.spec.fps] : null; }
-  function checkSupport() {
-    const t = tpl; if (!t) return;
+  function checkSupport(t) {
+    t = t || tpl; if (!t) return;
     const key = t.spec.width + 'x' + t.spec.height + '@' + t.spec.fps;
     if (key in supportCache) { applySupport(); return; }
     supportCache[key] = null;
     WoltExport.candidateConfigs(t.spec).then(list => {
       supportCache[key] = list.length ? list[0].family : false;
-      if (tpl === t) applySupport();
+      applySupport();
     }).catch(() => { supportCache[key] = null; });
   }
   function applySupport() {
-    const s = supportFor(tpl);
-    if (s === false) msg('This browser cannot encode video. Open this page in a current version of Chrome, Edge or Safari.', true);
-    else if (s === 'vp9') $('spec-codec').textContent = codecLabel('VP9');
-    updateExportButton();
+    for (const c of cards) renderCard(c);
+    renderEditorJob();
   }
-  function updateExportButton() {
-    const b = $('export');
-    if (supportFor(tpl) === false) { b.disabled = true; b.textContent = 'Export unavailable in this browser'; return; }
-    if (!logo) { b.disabled = true; b.textContent = 'Add a logo to export'; return; }
-    b.disabled = exporting; b.textContent = 'Export video';
+  function phaseOf(j) {
+    if (j.state === 'queued') return 'Waiting for the other exports';
+    if (j.p < 0.86 && j.f) return 'Rendering frame ' + j.f + ' of ' + j.n;
+    if (j.p < 0.86) return 'Preparing';
+    if (j.p < 0.98) return 'Checking playback';
+    return 'Finishing file';
   }
-  function invalidate() {
-    if (result) { result = null; $('result').hidden = true; }
-    if (!exporting) { $('export').hidden = false; if (supportFor(tpl) !== false) msg(''); }
-    updateExportButton();
+
+  function startExport(t) {
+    t = t || tpl;
+    if (!t || !logo || busy(t) || supportFor(t) === false) return;
+    prepare(t);
+    const j = { tpl: t, state: 'queued', p: 0, f: 0, n: t.scene.frames, result: null, err: '', abort: new AbortController(),
+      logo, opts: Object.assign({}, t.opts), name: logoName, solo: !anyBusy() };
+    jobs.set(t.id, j); queue.push(j);
+    if (t === tpl) { pause(); selected = false; dirty = true; }
+    jobChanged(j);
+    pump();
   }
-  function setProgress(p, f, n) {
-    const pct = Math.floor(Math.min(1, p) * 100);
+  async function pump() {
+    if (running || !queue.length) return;
+    const j = queue.shift();
+    running = j; j.state = 'running'; jobChanged(j);
+    try { if (!wake && navigator.wakeLock) wake = await navigator.wakeLock.request('screen'); } catch (e) { wake = null; }
+    const ex = new AEEngine(j.tpl.scene, { cpu: true });
+    ex.logo = j.logo; ex.logoOpts = j.opts;
+    try {
+      j.result = await WoltExport.exportMp4(ex, (p, f, n) => { j.p = p; if (f) { j.f = f; j.n = n; } jobProgress(j); }, j.abort.signal,
+        () => { j.retry = true; jobProgress(j); }, j.tpl.spec);
+      j.state = 'done';
+    } catch (e) {
+      if (e && e.name === 'AbortError') j.state = 'cancelled';
+      else { j.state = 'error'; j.err = (e && e.name === 'Unsupported') ? e.message : 'Export failed: ' + ((e && e.message) || 'unknown error') + '. Try again, or use Chrome, Edge or Safari.'; }
+    }
+    running = null;
+    if (j.state === 'cancelled') jobs.delete(j.tpl.id);
+    if (!anyBusy() && wake) { try { wake.release(); } catch (e) { /* released */ } wake = null; }
+    jobChanged(j);
+    // a single export saves itself on computers; when several are queued each card gets its own Save button
+    if (j.state === 'done' && j.solo && !queue.length && !isTouch) save(j);
+    pump();
+  }
+  function cancelJob(t) {
+    const j = jobOf(t); if (!j) return;
+    if (j.state === 'queued') { queue.splice(queue.indexOf(j), 1); jobs.delete(t.id); j.state = 'cancelled'; jobChanged(j); }
+    else if (j.state === 'running') j.abort.abort();
+  }
+  // a finished video no longer matches once its logo or layout changes
+  function clearResult(t) {
+    const j = jobOf(t);
+    if (j && (j.state === 'done' || j.state === 'error')) { jobs.delete(t.id); jobChanged(j); }
+  }
+  function clearAllResults() { for (const t of TEMPLATES) clearResult(t); }
+
+  function jobChanged(j) {
+    const c = cardOf(j.tpl); if (c) renderCard(c);
+    if (j.tpl === tpl) { renderEditorJob(); dirty = true; }
+    showLogoCard();
+    if (j.state === 'cancelled' && j.tpl === tpl) msg('Export cancelled.');
+  }
+  function jobProgress(j) {
+    const c = cardOf(j.tpl); if (c && view === 'library') renderCard(c);
+    if (j.tpl === tpl && view === 'editor') renderEditorProgress(j);
+  }
+
+  // ---------- editor's export panel ----------
+  function renderEditorProgress(j) {
+    const pct = j.state === 'queued' ? 0 : Math.floor(Math.min(1, j.p) * 100);
     $('bar-fill').style.width = pct + '%';
     $('bar').setAttribute('aria-valuenow', pct);
-    $('pct').textContent = pct + '%';
-    if (p < 0.86 && f) $('phase').textContent = 'Rendering frame ' + f + ' of ' + n;
-    else if (p < 0.98) $('phase').textContent = 'Checking playback';
-    else $('phase').textContent = 'Finishing file';
+    $('pct').textContent = j.state === 'queued' ? '' : pct + '%';
+    $('phase').textContent = j.retry && j.p < 0.05 ? 'Retrying with another encoder' : phaseOf(j);
   }
-  function fileName() {
-    const s = slug(logoName);
-    return tpl.id + (s ? '-' + s : '') + '-' + tpl.spec.width + 'x' + tpl.spec.height + '-' + Math.round(tpl.spec.fps) + 'fps.mp4';
+  function renderEditorJob() {
+    if (!tpl) return;
+    const j = jobOf(tpl), st = j ? j.state : 'idle', b = $('export');
+    const sup = supportFor(tpl);
+    $('progress').hidden = !(st === 'queued' || st === 'running');
+    $('result').hidden = st !== 'done';
+    b.hidden = st === 'queued' || st === 'running' || st === 'done';
+    if (sup === false) { b.disabled = true; b.textContent = 'Export unavailable in this browser'; }
+    else if (!logo) { b.disabled = true; b.textContent = 'Add a logo to export'; }
+    else { b.disabled = false; b.textContent = st === 'error' ? 'Try again' : 'Export video'; }
+    $('spec-codec').textContent = codecLabel(st === 'done' ? j.result.codec : (sup === 'vp9' ? 'VP9' : 'H.264'));
+    if (st === 'queued' || st === 'running') renderEditorProgress(j);
+    if (st === 'done') $('result-meta').textContent = '· ' + (j.result.blob.size / 1048576).toFixed(1) + ' MB · ' + (j.result.bitrate / 1e6).toFixed(1) + ' Mbps';
+    if (sup === false) msg('This browser cannot encode video. Open this page in a current version of Chrome, Edge or Safari.', true);
+    else if (st === 'error') msg(j.err, true);
+    else if (st !== 'idle' || $('export-msg').classList.contains('err')) msg('');
+    selected = selected && !busy(tpl);
   }
-  async function startExport() {
-    if (!logo || exporting || supportFor(tpl) === false) return;
-    const t = tpl;
-    exporting = true; pause(); dirty = true;
-    ['replace', 'remove', 'pick', 'back'].forEach(id => { $(id).disabled = true; });
-    $('export').hidden = true; $('result').hidden = true; msg('');
-    $('progress').hidden = false; setProgress(0, 0, N); $('phase').textContent = 'Preparing';
-    abort = new AbortController();
-    try { if (navigator.wakeLock) wake = await navigator.wakeLock.request('screen'); } catch (e) { wake = null; }
-    const ex = new AEEngine(t.scene, { cpu: true });
-    ex.logo = logo; ex.logoOpts = Object.assign({}, t.opts);
-    try {
-      const r = await WoltExport.exportMp4(ex, setProgress, abort.signal, () => { $('phase').textContent = 'Retrying with another encoder'; }, t.spec);
-      result = r;
-      $('spec-codec').textContent = codecLabel(r.codec);
-      $('result-meta').textContent = '· ' + (r.blob.size / 1048576).toFixed(1) + ' MB · ' + (r.bitrate / 1e6).toFixed(1) + ' Mbps';
-      $('result').hidden = false;
-      if (!isTouch) save();
-    } catch (e) {
-      $('export').hidden = false;
-      if (e && e.name === 'AbortError') msg('Export cancelled.');
-      else msg((e && e.name === 'Unsupported') ? e.message : 'Export failed: ' + ((e && e.message) || 'unknown error') + '. Try again, or use Chrome, Edge or Safari.', true);
-    } finally {
-      exporting = false; abort = null;
-      $('progress').hidden = true;
-      if (wake) { try { wake.release(); } catch (e) { /* released */ } wake = null; }
-      ['replace', 'remove', 'pick', 'back'].forEach(id => { $(id).disabled = false; });
-      updateExportButton(); updateBar();
-      dirty = true;
-    }
+
+  function fileName(j) {
+    const s = slug(j.name);
+    return j.tpl.id + (s ? '-' + s : '') + '-' + j.tpl.spec.width + 'x' + j.tpl.spec.height + '-' + Math.round(j.tpl.spec.fps) + 'fps.mp4';
   }
-  async function save() {
-    if (!result) return;
-    const name = fileName();
+  async function save(j) {
+    if (!j || !j.result) return;
+    const name = fileName(j), blob = j.result.blob;
     const dl = await dlCap;
     if (dl) {
-      try { await dl.save({ filename: name, data: result.blob }); return; }
+      try { await dl.save({ filename: name, data: blob }); return; }
       catch (e) {
         if (e && e.code === 'declined') return;
-        if (e && e.code === 'rate_limited') { msg('A save prompt is already open.'); return; }
+        if (e && e.code === 'rate_limited') { if (j.tpl === tpl) msg('A save prompt is already open.'); return; }
       }
     }
     if (isTouch && navigator.canShare) {
       try {
-        const f = new File([result.blob], name, { type: 'video/mp4' });
+        const f = new File([blob], name, { type: 'video/mp4' });
         if (navigator.canShare({ files: [f] })) { await navigator.share({ files: [f] }); return; }
       } catch (e) { if (e && e.name === 'AbortError') return; }
     }
-    const url = URL.createObjectURL(result.blob);
+    const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url; a.download = name; a.rel = 'noopener';
     document.body.appendChild(a); a.click(); a.remove();
     setTimeout(() => URL.revokeObjectURL(url), 120000);
   }
-  $('export').addEventListener('click', startExport);
-  $('cancel').addEventListener('click', () => { if (abort) abort.abort(); });
-  $('save').addEventListener('click', save);
-  $('again').addEventListener('click', () => { invalidate(); startExport(); });
+  $('export').addEventListener('click', () => { msg(''); startExport(tpl); });
+  $('cancel').addEventListener('click', () => cancelJob(tpl));
+  $('save').addEventListener('click', () => save(jobOf(tpl)));
+  $('again').addEventListener('click', () => { clearResult(tpl); startExport(tpl); });
 
   // keep page content clear of the fixed export bar on phones
   const mq = window.matchMedia('(max-width: 900px)');
@@ -2224,11 +2348,10 @@ h2 { margin: 0; font-size: 20px; font-weight: 800; letter-spacing: -0.01em; }
   if (mq.addEventListener) mq.addEventListener('change', padForBar);
 
   // ======================================================================
-  // ROUTING: #<template-id> opens a template, #client-<name> filters the library
+  // ROUTING: #<template-id> opens a template; anything else shows every template
   // ======================================================================
   let view = 'library';
   function route() {
-    if (exporting) { if (tpl) history.replaceState(null, '', '#' + tpl.id); return; }
     const h = decodeURIComponent((location.hash || '').slice(1));
     const t = TEMPLATES.find(x => x.id === h);
     if (t) {
@@ -2236,31 +2359,23 @@ h2 { margin: 0; font-size: 20px; font-weight: 800; letter-spacing: -0.01em; }
       $('view-library').hidden = true; $('view-editor').hidden = false;
       $('back').hidden = false;
       $('brand').textContent = t.name;
-      $('brand-tag').textContent = t.client; $('brand-tag').hidden = false;
-      document.title = t.name + ' · Logo Video Templates';
-      if (tpl !== t) openTemplate(t); else { fit(); dirty = true; }
+      document.title = t.name + ' · Wolt logo videos';
+      if (tpl !== t) openTemplate(t); else { fit(); dirty = true; renderEditorJob(); }
       window.scrollTo(0, 0);
     } else {
       view = 'library';
       if (tpl) pause();
-      clientFilter = h.indexOf('client-') === 0 ? h.slice(7) : 'all';
-      if (clientFilter !== 'all' && !TEMPLATES.some(x => slug(x.client) === clientFilter)) clientFilter = 'all';
       $('view-editor').hidden = true; $('view-library').hidden = false;
       $('back').hidden = true;
-      $('brand').textContent = 'Logo video templates';
-      $('brand-tag').hidden = true;
-      const cl = TEMPLATES.find(x => slug(x.client) === clientFilter);
-      $('lib-title').textContent = cl ? cl.client : 'All templates';
-      document.title = 'Logo Video Templates';
-      renderChips(); filterCards(); sizeCards();
+      $('brand').textContent = 'Wolt logo videos';
+      document.title = 'Wolt logo videos';
+      for (const c of cards) renderCard(c);
+      sizeCards();
     }
+    refreshLogoNote();
     padForBar();
   }
-  $('back').addEventListener('click', () => {
-    if (exporting) return;
-    const c = tpl ? slug(tpl.client) : '';
-    location.hash = clientFilter !== 'all' && c ? 'client-' + c : '';
-  });
+  $('back').addEventListener('click', () => { location.hash = ''; });
   window.addEventListener('hashchange', route);
 
   function loop(now) {
@@ -2273,11 +2388,12 @@ h2 { margin: 0; font-size: 20px; font-weight: 800; letter-spacing: -0.01em; }
   buildCards();
   showLogoCard();
   setPlayIcon();
+  if (TEMPLATES[0]) checkSupport(TEMPLATES[0]);
   route();
   requestAnimationFrame(loop);
   window.__app = {
-    TEMPLATES, loadLogo, startExport, seek, pause, play,
-    get engine() { return engine; }, get result() { return result; }, get tpl() { return tpl; }
+    TEMPLATES, loadLogo, startExport, cancelJob, seek, pause, play, jobs,
+    get engine() { return engine; }, get result() { const j = jobOf(tpl); return j && j.result; }, get tpl() { return tpl; }
   };
 })();
 </script>
